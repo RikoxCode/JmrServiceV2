@@ -1,0 +1,31 @@
+<div class="hero max-w-7xl mx-auto h-96 mb-64 mt-32">
+    <div class="hero-content flex-col lg:flex-row-reverse justify-around bg-base-200 rounded-lg">
+        <img [src]="getImgAsset()" class="max-w-sm shadow-2xl" />
+        <div>
+            <div class="flex flex-col gap-4 w-52 mr-40">
+                <div class="flex gap-4 items-center">
+                    <div class="w-16 h-16 rounded-full shrink-0">
+                        <div class="indicator">
+                            <div class="avatar placeholder">
+                                <div class="bg-neutral text-neutral-content rounded-full w-16">
+                                    <span>
+                                        {{ usernameFirstLetter }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="text-lg w-20"> {{ profileInfos.username }} </div>
+                        <div class="h-4 w-28 mb-3"> {{ profileInfos.email }} </div>
+                    </div>
+                </div>
+                <div class="h-32 w-full text-neutral-600">
+                    {{ motivierenderSpruch }}
+                </div>
+
+                <button class="btn btn-primary" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>

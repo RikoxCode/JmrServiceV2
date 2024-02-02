@@ -1,0 +1,71 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="archive-tooltable mt-20">
+        <div>
+            <form id="searchbar-form">
+                <input type="search" placeholder="Search..." (keyup)="checkInputs($event)" required>
+                <p class="fa fa-search">
+                    <svg viewBox="0 0 64.00 64.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c0c0c0"
+                        stroke-width="4.16">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <circle cx="32" cy="32" r="24"></circle>
+                            <circle cx="28" cy="28" r="8"></circle>
+                            <line x1="44" y1="44" x2="33.66" y2="33.66"></line>
+                        </g>
+                    </svg>
+                </p>
+            </form>
+            <input type="text" placeholder="Search..." [hidden]="!isSearchBarDisabled">
+        </div>
+    </div>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3" (click)="sort('title')">
+                    Titel
+                </th>
+                <th scope="col" class="px-6 py-3" (click)="sort('group')">
+                    Gruppe
+                </th>
+                <th scope="col" class="px-6 py-3" (click)="sort('grad')">
+                    Grad
+                </th>
+                <th scope="col" class="px-6 py-3" (click)="sort('stil')">
+                    Stil
+                </th>
+                <th scope="col" class="px-6 py-3" (click)="sort('duration')">
+                    Spielzeit
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                *ngFor="let item of filteredItems">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ item.title }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ item.group }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ item.grad }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ item.stil }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ item.duration }}
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-3">Edit</a>
+                    <a [routerLink]="'/detailed-item/?id=' + item._id" routerLinkActive="active" ariaCurrentWhenActive="page" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Visit</a>
+                </td>
+                <section [id]="item._id"></section>
+            </tr>
+        </tbody>
+    </table>
+</div>

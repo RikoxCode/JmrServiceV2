@@ -1,0 +1,43 @@
+
+
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+        <a  routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="assets/JMRService-logo-100.png" class="h-8" alt="Flowbite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">JmrService</span>
+        </a>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+            <a href="mailto:support@netshlife.dev" class="text-sm text-gray-500 dark:text-white hover:underline">Contact</a>
+            <a routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="isLoggedIn; else notLoggedIn">
+                <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                    <span class="font-medium text-gray-600 dark:text-gray-300">{{ usernameFirstLetter }}</span>
+                </div>
+            </a>
+            <ng-template #notLoggedIn>
+                <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-sm text-gray-500 dark:text-white hover:underline" *ngIf="!isLoggedIn">
+                    login
+                </a>
+            </ng-template>
+        </div>
+    </div>
+</nav>
+<nav class="bg-gray-50 dark:bg-gray-700">
+    <div class="max-w-screen-xl px-4 py-3 mx-auto">
+        <div class="flex items-center">
+            <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                <li>
+                    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/archive" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-gray-900 dark:text-white hover:underline">Archiv</a>
+                </li>
+                <li>
+                    <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-gray-900 dark:text-white hover:underline">Team</a>
+                </li>
+                <li>
+                    <a routerLink="/features" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-gray-900 dark:text-white hover:underline">Features</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
