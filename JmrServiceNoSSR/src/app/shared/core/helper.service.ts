@@ -22,11 +22,11 @@ export class HelperService {
     },
 
     metalink: {
-      url: 'http://10.2.2.16:3000/api',
+      url: 'https://metalink.netshlife.dev/api',
       name: 'Metalink',
       usedFor: 'Notemeta Handler',
       maxRequestsPerMinute: undefined,
-      testurl: 'http://10.2.2.16:3000/api/notemeta',
+      testurl: 'https://10.2.2.16:3000/api/notemeta',
       expectedResponse: '',
     },
   };
